@@ -1,12 +1,12 @@
 export interface Ingredient {
-    quantity: number;
-    units: string;
+    quantity?: number;
+    units?: string;
     name: string;
-    special: string;
+    special?: string;
 }
 
 export interface Direction {
-    step: number;
+    step?: number;
     info: string;
 }
 
@@ -18,16 +18,16 @@ enum Level {
 
 export interface Recipe {
     ingredients: Array<Ingredient>;
-    prepTime: number;
-    cookTime: number;
+    prepTime?: number;
+    cookTime?: number;
     name: string;
-    image: string;
+    image?: string;
     directions: Array<Direction>;
-    notes: string;
-    links: Array<string>;
-    categories: string;
-    yield: number;
-    level: Level;
+    notes?: string;
+    links?: Array<string>;
+    categories?: string;
+    yield?: number;
+    level?: Level;
 }
 
 export class Recipe implements Recipe {}
