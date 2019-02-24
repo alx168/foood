@@ -18,9 +18,12 @@ export let getApi = (req: Request, res: Response) => {
 
 export let getFood = (req: Request, res: Response) => {
   res.render("api/food", {
-    title: "Food"
+    title: "Food",
+    recipe: [{title: "Recipe", some: "test"}]
   });
 };
+
+// recipe: Food.find((food) => food)
 
 /**
  * GET /api/facebook
