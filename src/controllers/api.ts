@@ -16,6 +16,12 @@ export let getApi = (req: Request, res: Response) => {
   });
 };
 
+export let getFood = (req: Request, res: Response) => {
+  res.render("api/food", {
+    title: "Food"
+  });
+};
+
 /**
  * GET /api/facebook
  * Facebook API example.

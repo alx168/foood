@@ -12,7 +12,7 @@ import mongoose from "mongoose";
 import passport from "passport";
 import expressValidator from "express-validator";
 import bluebird from "bluebird";
-import { MONGODB_URI, SESSION_SECRET } from "./util/secrets";
+import { MONGODB_URI_LOCAL, SESSION_SECRET } from "./util/secrets";
 
 const MongoStore = mongo(session);
 
@@ -33,7 +33,7 @@ import * as passportConfig from "./config/passport";
 const app = express();
 
 // Connect to MongoDB
-const mongoUrl = MONGODB_URI;
+const mongoUrl = MONGODB_URI_LOCAL;
 (<any>mongoose).Promise = bluebird;
 mongoose.connect(mongoUrl, {useMongoClient: true}).then(
   () => { /** ready to use. The `mongoose.connect()` promise resolves to undefined. */ },
@@ -113,7 +113,7 @@ app.get("/account/unlink/:provider", passportConfig.isAuthenticated, userControl
  */
 app.get("/api", apiController.getApi);
 app.get("/api/facebook", passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getFacebook);
-
+app.get("/api/food", apiController.getFood);
 /**
  * OAuth authentication routes. (Sign in)
  */
